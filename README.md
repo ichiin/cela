@@ -9,9 +9,10 @@ Jaime(Product Owner) is responsible for :
   - ensuring everybody is aware and applying the scrum guidelines
 
 Daniel(Scrum Master) is responsible for :
-  -making sure communication is smooth
+  - making sure communication is smooth
 
-Philippe and Ivona(Development team) are responsible for :
+Philippe, Ivona, Daniel and Jaime(Development team) are responsible for :
+  - delivering increments of the product after each sprint
 
 
 # Communications strategies
