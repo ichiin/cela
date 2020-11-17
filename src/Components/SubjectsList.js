@@ -20,20 +20,23 @@ import { useState, useEffect } from 'react'
     }, [])
     
     const onClickSubject = (e)=>{
-        if(selectedSubject == 0 || selectedSubject != e.target.id)
-        setSelectedSubject(e.target.id)
-        console.log(selectedSubject);
+        if(selectedSubject === 0 || selectedSubject !== e.target.id){
+          setSelectedSubject(e.target.id)
+        console.log(selectedSubject);  
+        }
+        
     }
 
     const onAddSubject = () =>{
         const newSubject = subjects.find(subject => subject.id == selectedSubject);
         
-       if(mySubjects.length==0){
+       if(mySubjects.length===0){
            const myNewSubjects= mySubjects.push(newSubject)
            setMySubjects(myNewSubjects)
            console.log(mySubjects);
        }
        else{
+           console.log(mySubjects);
            if(!(mySubjects.includes(newSubject))){
             const myNewSubjects= mySubjects.push(newSubject)
             setMySubjects(myNewSubjects)
