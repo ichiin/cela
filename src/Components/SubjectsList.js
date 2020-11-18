@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react'
     {name:'maslacak', id:6},
 ];
 
+
  export function SubjectsList() {
     const [subjects, setSubjects] = useState([])
     const [selectedSubject,setSelectedSubject] = useState(0)
@@ -17,31 +18,24 @@ import { useState, useEffect } from 'react'
 
     useEffect(() => {
         setSubjects(list)
-    }, [])
+        console.log(mySubjects)
+
+    }, [mySubjects,subjects])
     
     const onClickSubject = (e)=>{
         if(selectedSubject === 0 || selectedSubject !== e.target.id){
-          setSelectedSubject(e.target.id)
-        console.log(selectedSubject);  
+          setSelectedSubject(e.target.id)  
         }
         
     }
 
     const onAddSubject = () =>{
         const newSubject = subjects.find(subject => subject.id == selectedSubject);
-        
-       if(mySubjects.length===0){
-           const myNewSubjects= mySubjects.push(newSubject)
-           setMySubjects(myNewSubjects)
-           console.log(mySubjects);
-       }
-       else{
-           console.log(mySubjects);
-           if(!(mySubjects.includes(newSubject))){
-            const myNewSubjects= mySubjects.push(newSubject)
-            setMySubjects(myNewSubjects)
-           }
-       }
+        if(!mySubjects.includes(newSubject)){
+            const myNewSubjects= [...mySubjects,newSubject]
+           setMySubjects(myNewSubjects);
+
+        }
     }
     const listMySubjects = ()=>{
     
