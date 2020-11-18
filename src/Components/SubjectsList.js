@@ -37,15 +37,13 @@ import { useState, useEffect } from 'react'
 
         }
     }
-    const listMySubjects = ()=>{
     
-             if(!mySubjects.length===0){
-            mySubjects.map(s=> {
-                return <h1 key={s.id}>{s.name}</h1>
-            })
-        }
+    
+             
+           
+        
        
-    }
+    
 
     return (
 
@@ -63,7 +61,9 @@ import { useState, useEffect } from 'react'
             <div style={{ width:'50%', padding:20, height:'100%' }}>
                 <h1>selected subjects</h1>
                 <div style={{height:'80%', borderStyle:'solid', borderWidth:'1px', borderColor:'black'}}>
-                  {listMySubjects}
+                  { mySubjects.map(s=> {
+                return <li style={{fontSize:'2rem', color:'blue', width:'100%',listStyle:'none'}} key={s.id}>{s.name}</li>
+            })}
                 
                 </div>
 
