@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+const axios = require('axios');
 
  const list = [
     {name:'pizda materina', id:1},
@@ -16,11 +17,19 @@ import { useState, useEffect } from 'react'
     const [selectedSubject,setSelectedSubject] = useState(0)
     const [mySubjects, setMySubjects] = useState([])
 
-    useEffect(() => {
-        setSubjects(list)
-        console.log(mySubjects)
+     useEffect(() => {
+         axios.get("http://localhost:3001/getSubjectList")
+             .then(function (response) {
+                 console.log("res response : ", response);
+                 setSubjects(response.data)
+             })
+             .catch(function (error) {
+                 // handle error
+                 console.log("error", error);
+             })
+         console.log(mySubjects)
 
-    }, [mySubjects,subjects])
+     }, [])
     
     const onClickSubject = (e)=>{
         if(selectedSubject === 0 || selectedSubject !== e.target.id){
@@ -37,8 +46,6 @@ import { useState, useEffect } from 'react'
 
         }
     }
-    
-    
              
            
         
