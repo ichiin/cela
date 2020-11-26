@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Erasmus SDS Project : CELA
 
 CELA(Courses for Erasmus+ Learning Agreement ) is a project that aims to simplify the process of choosing courses for Erasmus student at the University of Poznan.
