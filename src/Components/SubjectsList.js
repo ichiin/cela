@@ -2,16 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 const axios = require('axios');
 
- const list = [
-    {name:'pizda materina', id:1},
-    {name:'bla bla', id:2},
-    {name:'pizda', id:3},
-    {name:'materina', id:4},
-    {name:'jedi govna', id:5},
-    {name:'maslacak', id:6},
-];
-
-
  export function SubjectsList() {
     const [subjects, setSubjects] = useState([])
     const [selectedSubject,setSelectedSubject] = useState(0)
@@ -55,7 +45,7 @@ const axios = require('axios');
     return (
 
         <div style={{display:'flex', height:'100vh', justifyContent:'flex-start'}}>
-            <div style={{ width:'50%', padding:20, height:'100%' }}>
+            <div style={{ width:'50%', padding:20, height:'100%', textAlign:'center' }}>
                     <h1>List of all subjects</h1>
                     <div style={{height:'80%', borderStyle:'solid', borderWidth:'1px', borderColor:'black'}}>
                         {subjects.map(s=>{
