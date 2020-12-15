@@ -74,10 +74,10 @@ class UserForm extends Component {
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         <br></br>
-                                        <label className="label1">Date of birth</label>
+                                        <label>Date of birth</label>
                                         <br></br>
-                                        <div className="customDatePickerWidth">
-                                            <DatePicker dateFormat="dd.MM.yyyy" shouldCloseOnSelect selected={this.state.birthDate} onChange={date => this.BirthDate(date)} style={{textAlign:'center'}} />
+                                        <div style={{display: 'block', position: 'relative', textAlign: "center"}}>
+                                            <DatePicker dateFormat="dd.MM.yyyy" className={"where"} shouldCloseOnSelect selected={this.state.birthDate} onChange={date => this.BirthDate(date)} inputStyle={{ textAlign: 'center' }} />
                                         </div>
                                     </InputGroup>
                                     <InputGroup className="mb-3">
