@@ -1,20 +1,3 @@
-input[type=text], select {
-    width: 20%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-input[type=password] {
-    width: 20%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
 
 .buttonSubmit {
     color: #f2f2f2;
@@ -25,13 +8,17 @@ input[type=password] {
     font-weight: bold;
 }
 
-.label1 {
-    padding-left: 80px !important;
+.datePicker {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.proba{
-    background-color: lightblue;
-    background-size: cover;
-    min-width: 100%;
-    min-height: 100%;
+.radioButton {
+  margin-left: 150px;
+  margin-right: 20px;
+}
+
+.mx-4 {
+  background-color:  #ccebff !important;
 }
