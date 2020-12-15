@@ -22,3 +22,17 @@
 .mx-4 {
   background-color:  #ccebff !important;
 }
+
+input[type=radio],
+input.radio {
+  float: left;
+  clear: none;
+  margin: 2px 0 0 2px;
+}
+
+.labels {
+  float: left;
+  clear: none;
+  display: block;
+  padding: 0px 2em 0px 8px;
+}

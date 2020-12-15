@@ -119,10 +119,10 @@ class UserForm extends Component {
                                 <label>Gender</label>
                                 <InputGroup className="mb-3">
                                         <div className="radioButton" onChange={this.Sex}>
-                                            <input type="radio" value="Male" name="gender" /> Male
-                                            </div>
-                                            <div>
-                                            <input type="radio" value="Female" name="gender" /> Female
+                                            <input type="radio" value="Male" name="gender" /> 
+                                            <label className="labels">Male</label>
+                                            <input type="radio" value="Female" name="gender" /> 
+                                            <label className="labels">Female</label>
                                         </div>
                                 </InputGroup>
                                 <label>Field of education</label>
