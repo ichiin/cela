@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import '../Style/SubjectsList.css'
+import {Link} from "react-router-dom";
 
 const axios = require('axios');
 
@@ -63,6 +64,9 @@ export function SubjectsList() {
                     }
                 </div>
             </div>
+            <Link to={"/LaAgreement"}>
+                <button>Generate</button>
+            </Link>
         </div>
     )
 }
