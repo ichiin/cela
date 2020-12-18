@@ -1,74 +1,69 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react'
+import '../Style/SubjectsList.css'
+
 const axios = require('axios');
 
- export function SubjectsList() {
+export function SubjectsList() {
     const [subjects, setSubjects] = useState([])
-    const [selectedSubject,setSelectedSubject] = useState(0)
+    const [selectedSubjectId, setSelectedSubjectId] = useState(0) //for now, it's only possible to add item 1 by 1
     const [mySubjects, setMySubjects] = useState([])
+    const databaseURL = "http://localhost:3001"
 
-     useEffect(() => {
-         axios.get("http://localhost:3001/getSubjectList")
-             .then(function (response) {
-                 console.log("res response : ", response);
-                 setSubjects(response.data)
-             })
-             .catch(function (error) {
-                 // handle error
-                 console.log("error", error);
-             })
-         console.log(mySubjects)
+    //On page load, upload list of subject from db
+    useEffect(() => {
+        axios.get(databaseURL + "/getSubjectList")
+            .then(function (response) {
+                setSubjects(response.data)
+            })
+            .catch(function (error) {
+                console.log("error", error);
+            })
+    }, [])
 
-     }, [])
-    
-    const onClickSubject = (e)=>{
-        if(selectedSubject === 0 || selectedSubject !== e.target.id){
-          setSelectedSubject(e.target.id)  
+    //Select the subject that has been clicked in the list if it's not the selected one
+    const onClickSubject = (e) => {
+        if (selectedSubjectId === 0 || selectedSubjectId !== e.target.id) {
+            setSelectedSubjectId(parseInt(e.target.id))
         }
-        
+        console.log("selected subject id : ", e.target.id)
     }
 
-    const onAddSubject = () =>{
-        const newSubject = subjects.find(subject => subject.id == selectedSubject);
-        if(!mySubjects.includes(newSubject)){
-            const myNewSubjects= [...mySubjects,newSubject]
-           setMySubjects(myNewSubjects);
-
+    //Add selected subject to the basket
+    const onAddSubject = () => {
+        console.log(selectedSubjectId)
+        const newSubject = subjects.find(subject => {
+            return subject.id === selectedSubjectId
+        })
+        console.log(newSubject)
+        if (!mySubjects.includes(newSubject)) {
+            const myNewSubjects = [...mySubjects, newSubject]
+            setMySubjects(myNewSubjects);
         }
     }
-             
-           
-        
-       
-    
 
     return (
-
-        <div style={{display:'flex', height:'100vh', justifyContent:'flex-start'}}>
-            <div style={{ width:'50%', padding:20, height:'100%', textAlign:'center' }}>
-                    <h1>List of all subjects</h1>
-                    <div style={{height:'80%', borderStyle:'solid', borderWidth:'1px', borderColor:'black'}}>
-                        {subjects.map(s=>{
-                            return <button onClick={onClickSubject} id={s.id} style = {{backgroundColor:'transparent', borderColor:'transparent',width:'100%'}} >{s.name}</button>})}
-                    </div>
-                    <button onClick = {onAddSubject} >add subject</button>
-                
-
-            </div>
-            <div style={{ width:'50%', padding:20, height:'100%' }}>
-                <h1>selected subjects</h1>
-                <div style={{height:'80%', borderStyle:'solid', borderWidth:'1px', borderColor:'black'}}>
-                  { mySubjects.map(s=> {
-                return <li style={{fontSize:'2rem', color:'blue', width:'100%',listStyle:'none'}} key={s.id}>{s.name}</li>
-            })}
-                
+        <div id={"subjectsContainer"}>
+            <div className={"subjectsListTable"}>
+                <h1>Available courses</h1>
+                <div className={"subjectsListBody"}>
+                    {subjects.map(s => {
+                        return <button onClick={onClickSubject} id={s.id} key={"allSubjects" + s.id} className={"subjectTitle"}>{s.name}</button>
+                    })
+                    }
                 </div>
-
+                <button onClick={onAddSubject}>Add course</button>
             </div>
-
-            
+            <div className={"subjectsListTable"}>
+                <h1>My courses</h1>
+                <div className={"subjectsListBody"}>
+                    {mySubjects.map(s => {
+                        return <p className={"subjectTitle"} key={"mySubjects" + s.id}>{s.name}</p>
+                    })
+                    }
+                </div>
+            </div>
         </div>
-      
     )
 }
 

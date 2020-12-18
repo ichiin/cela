@@ -5,7 +5,7 @@ import LaAgreement from './Components/LaAgreement'
 import Homepage from './Components/HomePage'
 import UserForm from './Components/UserForm'
 import React from 'react'
-import './App.css';
+import './Style/App.css';
 
 function App() {
   return (

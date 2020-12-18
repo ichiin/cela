@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import { Button, Card, CardBody, Col, Container, Form, Input, 
     InputGroup, Row } from 'reactstrap';
-import "./customDatePickerWidth.css";
+import "../Style/customDatePickerWidth.css";
 import "react-datepicker/dist/react-datepicker.css";
-import './UserForm.css'; 
+import '../Style/UserForm.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
