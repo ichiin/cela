@@ -1,9 +1,12 @@
 import React from 'react'
 import './LaAgreement.css'
 
-function LaAgreement() {
-    
+function LaAgreement(props) {
+    const subjects = props.location.state.mySubjects 
+    const personalInfo = props.location.state.personalInfo 
+    console.log(personalInfo)
     return (
+      
         <div style={{alignItems:'center', tex:'center'}}>
             <div className = 'Content' >
             <div>
@@ -53,27 +56,34 @@ function LaAgreement() {
               <td style={{height: '60px', width: '108px'}}>
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
+                {personalInfo.lastName}
               </td>
               <td style={{height: '60px', width: '96.8px'}}>
                 <p>&nbsp;</p>
+                {personalInfo.firstName}
               </td>
               <td style={{height: '60px', width: '93.6px'}} colSpan={2}>
                 <p>&nbsp;</p>
+                
               </td>
               <td style={{height: '60px', width: '108px'}} colSpan={2}>
                 <p>&nbsp;</p>
+                {personalInfo.nationality}
               </td>
               <td style={{height: '60px', width: '210.4px'}} colSpan={2}>
                 <p style={{textAlign: 'center'}}><em>&nbsp;</em></p>
+                {personalInfo.sex}
               </td>
               <td style={{height: '60px', width: '72px'}} colSpan={4}>
                 <p>&nbsp;</p>
+                
               </td>
               <td style={{height: '60px', width: '96.8px'}} colSpan={2}>
-                <p>&nbsp;</p>
+                <p>&nbsp;</p>{personalInfo.fieldOfEducation}
               </td>
               <td style={{height: '60px', width: '8px'}}>
                 <p>&nbsp;</p>
+                
               </td>
             </tr>
             <tr style={{height: '87px'}}>
@@ -105,17 +115,19 @@ function LaAgreement() {
             </tr>
             <tr style={{height: '48px'}}>
               <td style={{height: '48px', width: '108px'}}>
-                <p><strong>UNIVERSITY OF ZAGREB</strong></p>
+                <p><strong>{personalInfo.institutionName}</strong></p>
               </td>
-              <td style={{height: '48px', width: '96.8px'}}>&nbsp;</td>
+              <td style={{height: '48px', width: '96.8px'}}>&nbsp; 
+              {personalInfo.faculty}
+              </td>
               <td style={{height: '48px', width: '93.6px'}} colSpan={2}>
-                <p><strong>HR ZAGREB01 </strong></p>
+                <p><strong>{personalInfo.erasmusCode} </strong></p>
               </td>
-              <td style={{height: '48px', width: '108px'}} colSpan={2}>&nbsp;</td>
+              <td style={{height: '48px', width: '108px'}} colSpan={2}>&nbsp;{personalInfo.address} </td>
               <td style={{height: '48px', width: '210.4px'}} colSpan={2}>
-                <p><strong>Croatia</strong></p>
+                <p><strong>{personalInfo.country}</strong></p>
               </td>
-              <td style={{height: '48px', width: '174.4px'}} colSpan={6}>&nbsp;</td>
+              <td style={{height: '48px', width: '174.4px'}} colSpan={6}>&nbsp; {personalInfo.contactPerson}</td>
               <td style={{height: '48px', width: '8px'}}>
                 <p>&nbsp;</p>
               </td>
@@ -201,107 +213,37 @@ function LaAgreement() {
               <td style={{height: '130px', width: '8px'}}>
                 <p>&nbsp;</p>
               </td>
+            
             </tr>
-            <tr style={{height: '35px'}}>
-              <td style={{height: '35px', width: '84.8px'}}>
-                <p>&nbsp;</p>
-              </td>
-              <td style={{height: '35px', width: '108px'}}>
-                <p>&nbsp;</p>
-              </td>
-              <td style={{height: '35px', width: '348px'}} colSpan={6}>
-                <p><strong>&nbsp;</strong></p>
-              </td>
-              <td style={{height: '35px', width: '209.6px'}} colSpan={3}>
-                <p><strong>&nbsp;</strong></p>
-              </td>
-              <td style={{height: '35px', width: '136.8px'}} colSpan={4}>
-                <p><strong>&nbsp;</strong></p>
-              </td>
-              <td style={{height: '35px', width: '8px'}}>
-                <p>&nbsp;</p>
-              </td>
-            </tr>
-            <tr style={{height: '35px'}}>
-              <td style={{height: '35px', width: '84.8px'}}>
-                <p>&nbsp;</p>
-              </td>
-              <td style={{height: '35px', width: '108px'}}>
-                <p>&nbsp;</p>
-              </td>
-              <td style={{height: '35px', width: '348px'}} colSpan={6}>
-                <p><strong>&nbsp;</strong></p>
-              </td>
-              <td style={{height: '35px', width: '209.6px'}} colSpan={3}>
-                <p><strong>&nbsp;</strong></p>
-              </td>
-              <td style={{height: '35px', width: '136.8px'}} colSpan={4}>
-                <p><strong>&nbsp;</strong></p>
-              </td>
-              <td style={{height: '35px', width: '8px'}}>
-                <p>&nbsp;</p>
-              </td>
-            </tr>
-            <tr style={{height: '35px'}}>
-              <td style={{height: '35px', width: '84.8px'}}>
-                <p>&nbsp;</p>
-              </td>
-              <td style={{height: '35px', width: '108px'}}>
-                <p><em>&nbsp;</em></p>
-              </td>
-              <td style={{height: '35px', width: '348px'}} colSpan={6}>
-                <p><em>&nbsp;</em></p>
-              </td>
-              <td style={{height: '35px', width: '209.6px'}} colSpan={3}>
-                <p><strong>&nbsp;</strong></p>
-              </td>
-              <td style={{height: '35px', width: '136.8px'}} colSpan={4}>
-                <p><strong>&nbsp;</strong></p>
-              </td>
-              <td style={{height: '35px', width: '8px'}}>
-                <p>&nbsp;</p>
-              </td>
-            </tr>
-            <tr style={{height: '35px'}}>
-              <td style={{height: '35px', width: '84.8px'}}>
-                <p>&nbsp;</p>
-              </td>
-              <td style={{height: '35px', width: '108px'}}>
-                <p><em>&nbsp;</em></p>
-              </td>
-              <td style={{height: '35px', width: '348px'}} colSpan={6}>
-                <p><em>&nbsp;</em></p>
-              </td>
-              <td style={{height: '35px', width: '209.6px'}} colSpan={3}>
-                <p><strong>&nbsp;</strong></p>
-              </td>
-              <td style={{height: '35px', width: '136.8px'}} colSpan={4}>
-                <p><strong>&nbsp;</strong></p>
-              </td>
-              <td style={{height: '35px', width: '8px'}}>
-                <p>&nbsp;</p>
-              </td>
-            </tr>
-            <tr style={{height: '35px'}}>
-              <td style={{height: '35px', width: '84.8px'}}>
-                <p>&nbsp;</p>
-              </td>
-              <td style={{height: '35px', width: '108px'}}>
-                <p><em>&nbsp;</em></p>
-              </td>
-              <td style={{height: '35px', width: '348px'}} colSpan={6}>
-                <p><em>&nbsp;</em></p>
-              </td>
-              <td style={{height: '35px', width: '209.6px'}} colSpan={3}>
-                <p><strong>&nbsp;</strong></p>
-              </td>
-              <td style={{height: '35px', width: '136.8px'}} colSpan={4}>
-                <p><strong>&nbsp;</strong></p>
-              </td>
-              <td style={{height: '35px', width: '8px'}}>
-                <p>&nbsp;</p>
-              </td>
-            </tr>
+            {subjects.map(s=> {
+                return (<tr style={{height: '35px'}}>
+                <td style={{height: '35px', width: '84.8px'}}>
+                  <p>&nbsp;</p>
+                  <text></text>
+                </td>
+                <td style={{height: '35px', width: '108px'}}>
+                  <p>&nbsp;</p>
+                  <text>{s.id}</text>
+                </td>
+                <td style={{height: '35px', width: '348px'}} colSpan={6}>
+                  <p><strong>&nbsp;</strong></p>
+                  <text>{s.name}</text>
+                </td>
+                <td style={{height: '35px', width: '209.6px'}} colSpan={3}>
+                  <p><strong>&nbsp;</strong></p>
+                  <text>{s.id_semester}</text>
+                </td>
+                <td style={{height: '35px', width: '136.8px'}} colSpan={4}>
+                  <p><strong>&nbsp;</strong></p>
+                  <text>{s.ects}</text>
+                </td>
+                <td style={{height: '35px', width: '8px'}}>
+                  <p>&nbsp;</p>
+                </td>
+              </tr>)
+            })}
+            
+           
             <tr style={{height: '48px'}}>
               <td style={{height: '48px', width: '84.8px'}}>
                 <p>&nbsp;</p>
