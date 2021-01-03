@@ -64,7 +64,9 @@ function LaAgreement(props) {
               </td>
               <td style={{height: '60px', width: '93.6px'}} colSpan={2}>
                 <p>&nbsp;</p>
-                
+                {personalInfo.birthDate.getDate()}.
+                {personalInfo.birthDate.getMonth()+1}.
+                {personalInfo.birthDate.getFullYear()}
               </td>
               <td style={{height: '60px', width: '108px'}} colSpan={2}>
                 <p>&nbsp;</p>
@@ -160,13 +162,13 @@ function LaAgreement(props) {
               </td>
             </tr>
             <tr style={{height: '35px'}}>
-              <td style={{height: '35px', width: '108px'}}>&nbsp;</td>
+              <td style={{height: '35px', width: '108px'}}>&nbsp;Politechnika Poznańska </td>
               <td style={{height: '35px', width: '96.8px'}}>&nbsp;</td>
-              <td style={{height: '35px', width: '93.6px'}} colSpan={2}>&nbsp;</td>
+              <td style={{height: '35px', width: '93.6px'}} colSpan={2}>&nbsp; PL POZNAN02</td>
               <td style={{height: '35px', width: '108px'}} colSpan={2}>
-                <p>&nbsp;</p>
+                <p>&nbsp; Plac Marii Skłodowskiej Curie 5, 60-965 Poznań</p>
               </td>
-              <td style={{height: '35px', width: '210.4px'}} colSpan={2}>&nbsp;</td>
+              <td style={{height: '35px', width: '210.4px'}} colSpan={2}>&nbsp; Poland</td>
               <td style={{height: '35px', width: '174.4px'}} colSpan={6}>&nbsp;</td>
               <td style={{height: '35px', width: '8px'}}>
                 <p>&nbsp;</p>
