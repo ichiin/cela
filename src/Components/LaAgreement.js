@@ -1,6 +1,7 @@
 import React from 'react'
-import './LaAgreement.css'
+import '../Style/LaAgreement.css'
 
+//Return a fully generated and styled Learning agreement.
 function LaAgreement(props) {
     const subjects = props.location.state.mySubjects 
     const personalInfo = props.location.state.personalInfo 

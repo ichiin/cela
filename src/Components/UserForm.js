@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import DatePicker from "react-datepicker";
-import { Button, Card, CardBody, Col, Container, Form, Input, 
-    InputGroup, Row } from 'reactstrap';
-import "./customDatePickerWidth.css";
+import { Button, Card, CardBody, Col, Container, Form, Input, InputGroup, Row } from 'reactstrap';
+import "../Style/customDatePickerWidth.css";
 import "react-datepicker/dist/react-datepicker.css";
-import './UserForm.css'; 
+import '../Style/UserForm.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 
@@ -168,10 +167,10 @@ class UserForm extends Component {
                     </Card></Col>
                 </Row>
                 <br></br>
-                <Button onClick={this.submit} className="buttonSubmit" color="danger" block>SUBMIT</Button>
-                <Link to={{pathname:'/SubjectList', state: this.state}}> Next</Link>
+                <Link to={{pathname:'/SubjectList', state: this.state}}>
+                    <Button onClick={this.submit} className="buttonSubmit" color="danger" block>SUBMIT</Button>
+                </Link>
             </Container>
-
             </div>
     );
 }

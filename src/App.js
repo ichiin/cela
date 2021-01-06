@@ -5,16 +5,18 @@ import LaAgreement from './Components/LaAgreement'
 import Homepage from './Components/HomePage'
 import UserForm from './Components/UserForm'
 import React from 'react'
-import './App.css';
+import './Style/App.css';
 
 function App() {
   return (
     <div className="App">
      <Router>
-        <Route exact path='/' component={Homepage}/>
-        <Route  path='/SubjectList' component={SubjectsList}/>
-        <Route  path='/LaAgreement' component={LaAgreement}/>
-        <Route exact path='/userForm' component={UserForm} />
+         <Switch>
+             <Route exact path='/' component={Homepage}/>
+            <Route  path='/SubjectList' component={SubjectsList}/>
+            <Route  path='/LaAgreement' component={LaAgreement}/>
+            <Route exact path='/userForm' component={UserForm} />
+         </Switch>
     </Router>
     </div>
   );
