@@ -9,7 +9,7 @@ export default function HomePage() {
                 <h1>Learning Agreement Generating Form</h1>
                 <h2>Fill out your information and the courses you wish to take to generate an Erasmus Learning agreement</h2>
                 <div id={"buttonStartHolder"}>
-                    <Link to={'/userForm'}>
+                    <Link to={'/Registration'}>
                         <button id={"buttonStart"}>Get Started !</button>
                     </Link>
                 </div>
