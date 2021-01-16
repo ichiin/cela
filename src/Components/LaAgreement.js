@@ -4,8 +4,10 @@ import '../Style/LaAgreement.css'
 //Return a fully generated and styled Learning agreement.
 function LaAgreement(props) {
     const subjects = props.location.state.mySubjects 
-    const personalInfo = props.location.state.personalInfo 
-    console.log(personalInfo)
+    const personalInfo = props.location.state.personalInfo
+    const ectsTotal = props.location.state.ectsTotal
+  console.log(personalInfo)
+  console.log("thot", ectsTotal)
     return (
       
         <div style={{alignItems:'center', tex:'center'}}>
@@ -19,8 +21,8 @@ function LaAgreement(props) {
         <p style={{textAlign: 'center'}}><strong>Student Mobility for</strong> <strong>Studies</strong></p>
         <p style={{textAlign: 'right'}}><strong>Higher Education:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</strong></p>
         <p style={{textAlign: 'right'}}><strong>Learning Agreement form&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></p>
-        <p style={{textAlign: 'right'}}><strong><em>Student’s name ___________________&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</em></strong></p>
-        <p style={{textAlign: 'right'}}><strong><em>Academic Year 20…/20…&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</em></strong></p>
+        <p style={{textAlign: 'right'}}><strong><em>Student’s name {personalInfo.lastName + " " + personalInfo.firstName}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</em></strong></p>
+        <p style={{textAlign: 'right'}}><strong><em>Academic Year 20../20..}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</em></strong></p>
         <table style={{borderColor: 'black', width: '950px', height: '1114px', marginLeft: 'auto', marginRight: 'auto'}} border={1}>
           <tbody>
             <tr style={{height: '62px'}}>
@@ -118,19 +120,19 @@ function LaAgreement(props) {
             </tr>
             <tr style={{height: '48px'}}>
               <td style={{height: '48px', width: '108px'}}>
-                <p><strong>{personalInfo.institutionName}</strong></p>
+                <p>{personalInfo.sending_institutionName}</p>
               </td>
               <td style={{height: '48px', width: '96.8px'}}>&nbsp; 
-              {personalInfo.faculty}
+              {personalInfo.sending_faculty}
               </td>
               <td style={{height: '48px', width: '93.6px'}} colSpan={2}>
-                <p><strong>{personalInfo.erasmusCode} </strong></p>
+                <p><strong>{personalInfo.sending_erasmusCode} </strong></p>
               </td>
-              <td style={{height: '48px', width: '108px'}} colSpan={2}>&nbsp;{personalInfo.address} </td>
+              <td style={{height: '48px', width: '108px'}} colSpan={2}>&nbsp;{personalInfo.sending_address} </td>
               <td style={{height: '48px', width: '210.4px'}} colSpan={2}>
-                <p><strong>{personalInfo.country}</strong></p>
+                <p>{personalInfo.sending_country}</p>
               </td>
-              <td style={{height: '48px', width: '174.4px'}} colSpan={6}>&nbsp; {personalInfo.contactPerson}</td>
+              <td style={{height: '48px', width: '174.4px'}} colSpan={6}>&nbsp; {personalInfo.sending_contact_name + "\n" + personalInfo.sending_contact_mail}</td>
               <td style={{height: '48px', width: '8px'}}>
                 <p>&nbsp;</p>
               </td>
@@ -164,13 +166,13 @@ function LaAgreement(props) {
             </tr>
             <tr style={{height: '35px'}}>
               <td style={{height: '35px', width: '108px'}}>&nbsp;Politechnika Poznańska </td>
-              <td style={{height: '35px', width: '96.8px'}}>&nbsp;</td>
+              <td style={{height: '35px', width: '96.8px'}}>&nbsp; {personalInfo.receiving_faculty}</td>
               <td style={{height: '35px', width: '93.6px'}} colSpan={2}>&nbsp; PL POZNAN02</td>
               <td style={{height: '35px', width: '108px'}} colSpan={2}>
                 <p>&nbsp; Plac Marii Skłodowskiej Curie 5, 60-965 Poznań</p>
               </td>
               <td style={{height: '35px', width: '210.4px'}} colSpan={2}>&nbsp; Poland</td>
-              <td style={{height: '35px', width: '174.4px'}} colSpan={6}>&nbsp;</td>
+              <td style={{height: '35px', width: '174.4px'}} colSpan={6}>&nbsp; {personalInfo.receiving_contact_name + "\n" + personalInfo.receiving_contact_mail}</td>
               <td style={{height: '35px', width: '8px'}}>
                 <p>&nbsp;</p>
               </td>
@@ -261,7 +263,7 @@ function LaAgreement(props) {
                 <p><strong>&nbsp;</strong></p>
               </td>
               <td style={{height: '48px', width: '136.8px'}} colSpan={4}>
-                <p><strong>Total: ………</strong></p>
+                <p><strong>Total: {ectsTotal}</strong></p>
               </td>
               <td style={{height: '48px', width: '8px'}}>
                 <p>&nbsp;</p>

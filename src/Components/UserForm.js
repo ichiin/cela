@@ -19,12 +19,16 @@ class UserForm extends Component {
           nationality: "",
           sex: "",
           fieldOfEducation: "",
-          institutionName: "",
-          faculty: "",
-          erasmusCode: "",
-          address: "",
-          country: "",
-          contactPerson: "",
+            sending_institutionName: "",
+            sending_faculty: "",
+            sending_erasmusCode: "",
+            sending_address: "",
+            sending_country: "",
+            sending_contact_name: "",
+            sending_contact_mail: "",
+            receiving_faculty : "",
+            receiving_contact_name : "",
+            receiving_contact_mail : ""
         };
         this.LastName = this.LastName.bind(this);
         this.FirstName = this.FirstName.bind(this);
@@ -32,12 +36,16 @@ class UserForm extends Component {
         this.Nationality = this.Nationality.bind(this);
         this.Sex = this.Sex.bind(this);
         this.FieldOfEducation = this.FieldOfEducation.bind(this);
-        this.InstitutionName = this.InstitutionName.bind(this);
-        this.Faculty = this.Faculty.bind(this);
-        this.ErasmusCode = this.ErasmusCode.bind(this);
-        this.Address = this.Address.bind(this);
-        this.Country = this.Country.bind(this);
-        this.ContactPerson = this.ContactPerson.bind(this);
+        this.sending_InstitutionName = this.sending_InstitutionName.bind(this);
+        this.sending_Faculty = this.sending_Faculty.bind(this);
+        this.sending_ErasmusCode = this.sending_ErasmusCode.bind(this);
+        this.sending_Address = this.sending_Address.bind(this);
+        this.sending_Country = this.sending_Country.bind(this);
+        this.sending_contact_name = this.sending_contact_name.bind(this);
+        this.sending_contact_mail = this.sending_contact_mail.bind(this);
+        this.receiving_faculty = this.receiving_faculty.bind(this);
+        this.receiving_contact_name = this.receiving_contact_name.bind(this);
+        this.receiving_contact_mail = this.receiving_contact_mail.bind(this);
         this.submit = this.submit.bind(this);
       }
 
@@ -61,28 +69,44 @@ class UserForm extends Component {
         this.setState({ fieldOfEducation: event.target.value })
     }
 
-    InstitutionName(event) {
-        this.setState({ institutionName: event.target.value })
+    sending_InstitutionName(event) {
+        this.setState({ sending_institutionName: event.target.value })
     }
 
-    Faculty(event) {
-        this.setState({ faculty: event.target.value })
+    sending_Faculty(event) {
+        this.setState({ sending_faculty: event.target.value })
     }
 
-    ErasmusCode(event) {
-        this.setState({ erasmusCode: event.target.value })
+    sending_ErasmusCode(event) {
+        this.setState({ sending_erasmusCode: event.target.value })
     }
 
-    Address(event) {
-        this.setState({ address: event.target.value })
+    sending_Address(event) {
+        this.setState({ sending_address: event.target.value })
     }
 
-    Country(event) {
-        this.setState({ country: event.target.value })
+    sending_Country(event) {
+        this.setState({ sending_country: event.target.value })
     }
 
-    ContactPerson(event) {
-        this.setState({ contactPerson: event.target.value })
+    sending_contact_name(event) {
+        this.setState({ sending_contact_name: event.target.value })
+    }
+
+    sending_contact_mail(event) {
+        this.setState({ sending_contact_mail: event.target.value })
+    }
+
+    receiving_faculty(event) {
+        this.setState({ receiving_faculty: event.target.value })
+    }
+
+    receiving_contact_name(event) {
+        this.setState({ receiving_contact_name: event.target.value })
+    }
+
+    receiving_contact_mail(event) {
+        this.setState({ receiving_contact_mail: event.target.value })
     }
     submit(event) {
         console.log(this.state.lastName + this.state.firstName + this.state.birthDate + this.state.nationality + this.state.sex + this.state.fieldOfEducation + " Sending institution: " + this.state.institutionName + " " + this.state.faculty + " " + this.state.erasmusCode + " " + this.state.address + " " + this.state.country + " " + this.state.contactPerson)
@@ -93,7 +117,7 @@ class UserForm extends Component {
         <div className="infoForm">
         <Container>
             <Row>
-                <Col xs={6}>
+                <Col xs={4}>
                     <h2>User informations</h2>
                     <Card className="mx-4">
                         <CardBody className="p-4">
@@ -133,34 +157,58 @@ class UserForm extends Component {
                         </CardBody>
                     </Card>
                 </Col>
-                <Col xs={6}>
+                <Col xs={4}>
                 <h2>Sending institution</h2>
                     <Card className="mx-4">
                         <CardBody className="p-4">
                             <Form>
                                 <label>Name</label>
                                 <InputGroup className="mb-3">
-                                    <Input type="text" id="iname" onChange={this.InstitutionName}/>
+                                    <Input type="text" id="sending_name" onChange={this.sending_InstitutionName}/>
                                 </InputGroup>
                                 <label>Faculty/Department</label>
                                 <InputGroup className="mb-3">
-                                    <Input type="text" id="faculty" onChange={this.Faculty}/>
+                                    <Input type="text" id="sending_faculty" onChange={this.sending_Faculty}/>
                                 </InputGroup>
                                 <label>Erasmus code</label>
                                 <InputGroup className="mb-3">
-                                    <Input type="text" id="ecode" onChange={this.ErasmusCode}/>
+                                    <Input type="text" id="sending_ecode" onChange={this.sending_ErasmusCode}/>
                                 </InputGroup>
                                 <label className="label">Address</label>
                                 <InputGroup className="mb-3">
-                                    <Input type="text" id="address" onChange={this.Address}/>
+                                    <Input type="text" id="sending_address" onChange={this.sending_Address}/>
                                 </InputGroup>
                                 <label className="label">Country</label>
                                 <InputGroup className="mb-3">
-                                    <Input type="text" id="country" onChange={this.Country}/>
+                                    <Input type="text" id="sending_country" onChange={this.sending_Country}/>
                                 </InputGroup>
                                 <label>Contact person name</label>
                                 <InputGroup className="mb-3">
-                                    <Input className="mb-3" type="text" id="contactperson" onChange={this.ContactPerson}/>
+                                    <Input className="mb-3" type="text" id="sending_contact_name" onChange={this.sending_contact_name}/>
+                                </InputGroup>
+                                <label>Contact person mail</label>
+                                <InputGroup className="mb-3">
+                                    <Input className="mb-3" type="text" id="sending_contact_mail" onChange={this.sending_contact_mail}/>
+                                </InputGroup>
+                            </Form>
+                        </CardBody>
+                    </Card></Col>
+                <Col xs={4}>
+                    <h2>Receiving institution</h2>
+                    <Card className="mx-4">
+                        <CardBody className="p-4">
+                            <Form>
+                                <label>Department/Faculty</label>
+                                <InputGroup className="mb-3">
+                                    <Input type="text" id="receiving_faculty" onChange={this.receiving_faculty}/>
+                                </InputGroup>
+                                <label>Contact person name</label>
+                                <InputGroup className="mb-3">
+                                    <Input type="text" id="receiving_faculty_name" onChange={this.receiving_contact_name}/>
+                                </InputGroup>
+                                <label>Contact person email</label>
+                                <InputGroup className="mb-3">
+                                    <Input type="text" id="receiving_faculty_mail" onChange={this.receiving_contact_mail}/>
                                 </InputGroup>
                             </Form>
                         </CardBody>

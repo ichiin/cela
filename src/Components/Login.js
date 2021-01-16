@@ -2,20 +2,38 @@ import React, { Component } from 'react';
 import '../Style/HomePage.css';
 import '../Style/Registration.css';
 import { Col, Input, InputGroup, Row } from 'reactstrap';
+import {Snackbar} from "@material-ui/core";
+import {Alert} from "@material-ui/lab";
 
 class Login extends Component {
-    constructor() {
+    constructor(props) {
         super();
- 
         this.state = {
             Email: '',
             Password: '',
+            open : false,
+            creation : props.location.state.creation
         }
  
         this.Password = this.Password.bind(this);
         this.Email = this.Email.bind(this);
         this.login = this.login.bind(this);
+        this.handleAlert = this.handleAlert.bind(this);
+        this.handleClose = this.handleClose.bind(this);
         localStorage.setItem('isLogged', 'false');
+    }
+
+
+
+    handleAlert(){
+        this.setState({open: true})
+    }
+
+    handleClose(event, reason){
+        if (reason === 'clickaway') {
+            return;
+        }
+        this.setState({open: false})
     }
  
     Email(event) {
@@ -38,7 +56,7 @@ class Login extends Component {
             })
         }).then((Response) => Response.json())
             .then((result) => {
-                if(result.length != 0) {
+                if(result.length !== 0) {
                     localStorage.setItem('isLogged', 'true');
                     localStorage.setItem('email', this.state.Email);
                     console.log(result);
@@ -53,6 +71,10 @@ class Login extends Component {
                         alert('The email address you entered does not match any accounts');
                 }
             })
+    }
+
+    componentDidMount(){
+        if(this.state.creation === true)this.handleAlert()
     }
  
   render() {
@@ -81,6 +103,12 @@ class Login extends Component {
                       </Col>
                     </Row>
                   <a className="Link" href={'/Registration'}>You don't have an account? Register!</a>
+                  <a className="Link" href={'/userForm'}>Continue as guest</a>
+                <Snackbar open={this.state.open} autoHideDuration={4000} onClose={this.handleClose}>
+                    <Alert onClose={this.handleClose} severity="success">
+                        Account created successfully
+                    </Alert>
+                </Snackbar>
               </div>
           </div>
         );

@@ -8,6 +8,7 @@ const axios = require('axios');
 export function SubjectsList(props) {
     const personalInfo = props.location.state
     const [subjects, setSubjects] = useState([])
+    const [ectsTotal, setEctsTotal] = useState(0)
     const [selectedSubjectId, setSelectedSubjectId] = useState(0) //for now, it's only possible to add item 1 by 1
     const [mySubjects, setMySubjects] = useState([])
     const databaseURL = "http://localhost:3001"
@@ -39,6 +40,7 @@ export function SubjectsList(props) {
         if (!mySubjects.includes(newSubject)) {
             const myNewSubjects = [...mySubjects, newSubject]
             setMySubjects(myNewSubjects);
+            setEctsTotal(ectsTotal + newSubject.ects)
         }
     }
     
@@ -49,6 +51,7 @@ export function SubjectsList(props) {
         if (mySubjects.includes(newSubject)) {
             const myNewSubjects = mySubjects.filter(subject => subject.id !== selectedSubjectId)
             setMySubjects(myNewSubjects);
+            setEctsTotal(ectsTotal - newSubject.ects)
         }
     }
 
@@ -74,7 +77,7 @@ export function SubjectsList(props) {
                 </div>
                 <button onClick = {onRemoveSubject} >Remove subject</button>
             </div>
-            <Link to={{pathname: "/LaAgreement", state: {mySubjects: mySubjects, personalInfo: personalInfo}}}>
+            <Link to={{pathname: "/LaAgreement", state: {mySubjects: mySubjects, personalInfo: personalInfo, ectsTotal: ectsTotal}}}>
                 <button>Generate</button>
             </Link>
         </div>
