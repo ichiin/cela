@@ -133,9 +133,9 @@ function LaAgreement(props) {
                 </td>
                 <td style={{ height: "60px", width: "93.6px" }} colSpan={2}>
                   <p>&nbsp;</p>
-                  {personalInfo.birthDate.getDate()}.
-                  {personalInfo.birthDate.getMonth() + 1}.
-                  {personalInfo.birthDate.getFullYear()}
+                  {personalInfo.birthDate && personalInfo.birthDate.getDate()}.
+                  {personalInfo.birthDate && personalInfo.birthDate.getMonth() + 1}.
+                  {personalInfo.birthDate && personalInfo.birthDate.getFullYear()}
                 </td>
                 <td style={{ height: "60px", width: "108px" }} colSpan={2}>
                   <p>&nbsp;</p>
