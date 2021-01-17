@@ -21,3 +21,15 @@
   background-color: #3e72f8;
   color: white;
 }
+
+.secondaryButton{
+  border-color: green!important;
+  color: green!important;
+  margin-Top: 20px!important;
+}
+
+.secondaryButton:disabled{
+  background-color: lightgrey!important;
+  color: darkgrey!important;
+  border: transparent!important;
+}

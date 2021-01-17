@@ -18,7 +18,7 @@ export function SubjectsList(props) {
   const personalInfo = props.location.state;
   const [subjects, setSubjects] = useState([]);
   const [ectsTotal, setEctsTotal] = useState(0);
-  const [selectedSubjectId, setSelectedSubjectId] = useState(0); //for now, it's only possible to add item 1 by 1
+  const [selectedSubjectId, setSelectedSubjectId] = useState(-1); //for now, it's only possible to add item 1 by 1
   const [mySubjects, setMySubjects] = useState([]);
   const [courseDetailsIDS, setCourseDetailsIDS] = useState([]);
   const databaseURL = "http://localhost:3001";
@@ -48,7 +48,7 @@ export function SubjectsList(props) {
     const newSubject = subjects.find((subject) => {
       return subject.id === selectedSubjectId;
     });
-    if (!mySubjects.includes(newSubject)) {
+    if (!mySubjects.includes(newSubject) && newSubject) {
       const myNewSubjects = [...mySubjects, newSubject];
       setMySubjects(myNewSubjects);
       setEctsTotal(ectsTotal + newSubject.ects);
@@ -109,7 +109,7 @@ export function SubjectsList(props) {
                     <Grid container item direction={"row"}>
                       <ListItem
                         button
-                        selected={selectedSubjectId === s.id}
+                        selected={selectedSubjectId === s.id && mySubjects.filter(subj => subj.id === selectedSubjectId).length === 0}
                         disabled={mySubjects.includes(s)}
                         style={{ justifyContent: "center" }}
                         onClick={(event) => onClickSubject(event, s.id)}
@@ -137,8 +137,9 @@ export function SubjectsList(props) {
         </Paper>
         <Button
           variant={"outlined"}
-          style={{ borderColor: "green", color: "green", marginTop: 20 }}
+          className={"secondaryButton"}
           onClick={onAddSubject}
+          disabled={(selectedSubjectId === -1 || mySubjects.filter(subj => subj.id === selectedSubjectId).length > 0) && true}
         >
           Add selected course
         </Button>
@@ -181,6 +182,7 @@ export function SubjectsList(props) {
         <Button
           variant={"outlined"}
           color={"secondary"}
+          className={"tertiaryButton"}
           style={{ marginTop: 20 }}
           onClick={onRemoveSubject}
         >

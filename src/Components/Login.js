@@ -24,8 +24,8 @@ class Login extends Component {
     localStorage.setItem("isLogged", "false");
   }
 
-  handleAlert() {
-    this.setState({ open: true });
+  handleAlert(message) {
+    this.setState({ open: true, errorMessage: message });
   }
 
   handleClose(event, reason) {
@@ -65,13 +65,13 @@ class Login extends Component {
             result[0].password !== this.state.Password ||
             result[0].email !== this.state.Email
           )
-            alert("Incorrect password!");
+            this.handleAlert("Incorrect password!");
           else this.props.history.push("/UserForm");
         } else {
           if (this.state.Password === "" && this.state.Email === "")
-            alert("You have to fill in all the fields!");
+            this.handleAlert("You have to fill in all the fields!");
           else
-            alert("The email address you entered does not match any accounts");
+            this.handleAlert("The email address you entered does not match any accounts");
         }
       });
   }
@@ -137,8 +137,8 @@ class Login extends Component {
             autoHideDuration={4000}
             onClose={this.handleClose}
           >
-            <Alert onClose={this.handleClose} severity="success">
-              Account created successfully
+            <Alert onClose={this.handleClose} severity="error">
+              {this.state.errorMessage}
             </Alert>
           </Snackbar>
         </Grid>

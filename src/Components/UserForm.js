@@ -184,7 +184,7 @@ class UserForm extends Component {
                     </InputGroup>
                     <label>Gender</label>
                     <InputGroup className="mb-3">
-                      <div className="radioButton" onChange={this.Sex}>
+                      <div  onChange={this.Sex}>
                         <input type="radio" value="Male" name="gender" />
                         <label className="labels">Male</label>
                         <input type="radio" value="Female" name="gender" />
@@ -254,7 +254,6 @@ class UserForm extends Component {
                     <label>Contact person name</label>
                     <InputGroup className="mb-3">
                       <Input
-                        className="mb-3"
                         type="text"
                         id="sending_contact_name"
                         onChange={this.sending_contact_name}
@@ -263,7 +262,6 @@ class UserForm extends Component {
                     <label>Contact person mail</label>
                     <InputGroup className="mb-3">
                       <Input
-                        className="mb-3"
                         type="text"
                         id="sending_contact_mail"
                         onChange={this.sending_contact_mail}
