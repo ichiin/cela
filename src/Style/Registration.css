@@ -1,4 +1,9 @@
-.Link {
-    margin-left: 120px;
-    color: white;
+.link {
+  color: white;
+  margin-top: 20px;
+  text-align: center;
+}
+.link:hover {
+  color: #3e72f8;
+  text-underline: white;
 }

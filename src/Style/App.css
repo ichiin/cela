@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display");
+
 h1 {
-  font-family: 'Josefin Sans', cursive;
+  font-family: "Josefin Sans", cursive;
   font-size: 36px;
 }
 
-h2{
-  font-family: 'Playfair Display', cursive;
+h2 {
+  font-family: "Playfair Display", cursive;
   font-size: 24px;
 }

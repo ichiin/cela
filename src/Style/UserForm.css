@@ -1,11 +1,10 @@
-
 .buttonSubmit {
-    color: #f2f2f2;
-    background-color:#333!important;
-    height: 50px;
-    width: 100px;
-    margin: 8px 0 8px 0;
-    font-weight: bold;
+  color: #f2f2f2;
+  background-color: #333 !important;
+  height: 50px;
+  width: 100px;
+  margin: 8px 0 8px 0;
+  font-weight: bold;
 }
 
 .datePicker {
@@ -20,10 +19,10 @@
 }
 
 .mx-4 {
-  background-color:  #ccebff !important;
+  background-color: #ccebff !important;
 }
 
-input[type=radio],
+input[type="radio"],
 input.radio {
   float: left;
   clear: none;

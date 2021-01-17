@@ -1,33 +1,31 @@
-#pageBackgroundImage{
-    height: 100vh;
-    background-image: url("../Images/poznanCampus.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#pageBackgroundImage {
+  height: 100vh;
+  background-image: url("../Images/poznanCampus.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#blackOverlay{
-    background: rgba(0, 0, 0, 0.7);
-    height: 400px;
-    width: 500px;
-    color: white;
+#blackOverlay {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
 }
 
-h1, h2{
-    text-align: center;
-    padding: 25px 75px;
+h1,
+h2 {
+  text-align: center;
+  padding: 25px 75px;
 }
 
-#buttonStartHolder{
-    display: flex;
-    justify-content: center;
+#buttonStartHolder {
+  display: flex;
+  justify-content: center;
 }
 
-#buttonStart{
-    background-color: #3E72F8;
-    color: white;
-    font-family: "Playfair Display", sans-serif;
-    padding: 10px;
+#buttonStart {
+  background-color: #3e72f8;
+  color: white;
+  padding: 10px;
 }
