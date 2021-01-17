@@ -183,7 +183,7 @@ export function SubjectsList(props) {
           variant={"outlined"}
           color={"secondary"}
           className={"tertiaryButton"}
-          style={{ marginTop: 20 }}
+          disabled={(selectedSubjectId === -1 || mySubjects.filter(subj => subj.id === selectedSubjectId).length === 0) && true}
           onClick={onRemoveSubject}
         >
           Remove selected course

@@ -28,8 +28,14 @@
   margin-Top: 20px!important;
 }
 
-.secondaryButton:disabled{
+.secondaryButton:disabled, .tertiaryButton:disabled{
   background-color: lightgrey!important;
   color: darkgrey!important;
   border: transparent!important;
+}
+
+.tertiaryButton{
+  border-color: red!important;
+  color: red!important;
+  margin-Top: 20px!important;
 }
