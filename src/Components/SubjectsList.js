@@ -199,8 +199,9 @@ export function SubjectsList(props) {
       >
         <Button
           variant={"contained"}
-          style={{ backgroundColor: "#3E72F8", color: "white" }}
+          className={"primaryButton"}
           onClick={generateLA}
+          disabled={mySubjects.length === 0}
         >
           Generate Learning Agreeement
         </Button>

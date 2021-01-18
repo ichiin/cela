@@ -22,13 +22,18 @@
   color: white;
 }
 
+.primaryButton{
+  background-color: #3E72F8!important;
+  color: white!important;
+}
+
 .secondaryButton{
   border-color: green!important;
   color: green!important;
   margin-Top: 20px!important;
 }
 
-.secondaryButton:disabled, .tertiaryButton:disabled{
+.secondaryButton:disabled, .tertiaryButton:disabled, .primaryButton:disabled{
   background-color: lightgrey!important;
   color: darkgrey!important;
   border: transparent!important;
