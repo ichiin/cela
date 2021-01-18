@@ -38,6 +38,7 @@ class UserForm extends Component {
       receiving_faculty: "",
       receiving_contact_name: "",
       receiving_contact_mail: "",
+      email : localStorage.getItem("email")
     };
     this.LastName = this.LastName.bind(this);
     this.FirstName = this.FirstName.bind(this);
@@ -123,27 +124,30 @@ class UserForm extends Component {
   }
 
   submit(event) {
-    console.log(
-      this.state.lastName +
-        this.state.firstName +
-        this.state.birthDate +
-        this.state.nationality +
-        this.state.sex +
-        this.state.fieldOfEducation +
-        " Sending institution: " +
-        this.state.institutionName +
-        " " +
-        this.state.faculty +
-        " " +
-        this.state.erasmusCode +
-        " " +
-        this.state.address +
-        " " +
-        this.state.country +
-        " " +
-        this.state.contactPerson
-    );
-  }
+    fetch("http://localhost:3001/setUserInformation", {
+      method: "post",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: this.state.email,
+        lastName: this.state.lastName,
+        firstName: this.state.firstName,
+        birthDate: this.state.birthDate,
+        nationality: this.state.nationality,
+        sex: this.state.sex,
+        fieldOfEducation : this.state.fieldOfEducation,
+        sending_institutionName : this.state.sending_institutionName,
+        sending_faculty : this.state.sending_faculty,
+        sendingErasmusCode : this.state.sending_erasmusCode,
+        sending_address : this.state.sending_address,
+        sending_country : this.state.sending_country,
+        sending_contact_name : this.state.sending_contact_name,
+        sending_contact_mail : this.state.sending_contact_mail,
+        receiving_contact_name : this.state.receiving_contact_name,
+        receiving_contact_mail : this.state.receiving_contact_mail
+      })})}
 
   render() {
     return (

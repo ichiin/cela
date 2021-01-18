@@ -24,7 +24,7 @@ export default function HomePage() {
           </h2>
         </Grid>
         <Grid item xs={12} id={"buttonStartHolder"}>
-          <Link to={"/Registration"}>
+          <Link to={"/Login"}>
             <Button variant={"contained"} id={"buttonStart"}>
               Get started !
             </Button>

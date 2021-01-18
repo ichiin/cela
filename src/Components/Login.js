@@ -60,6 +60,8 @@ class Login extends Component {
         if (result.length !== 0) {
           localStorage.setItem("isLogged", "true");
           localStorage.setItem("email", this.state.Email);
+          console.log(this.props.setLoggedEmail)
+          this.props.setLoggedEmail(this.state.Email);
           console.log(result);
           if (
             result[0].password !== this.state.Password ||
