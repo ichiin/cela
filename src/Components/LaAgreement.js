@@ -6,7 +6,6 @@ function LaAgreement(props) {
   const subjects = props.location.state.mySubjects;
   const personalInfo = props.location.state.personalInfo;
   const ectsTotal = props.location.state.ectsTotal;
-  console.log(personalInfo);
   return (
     <div style={{ alignItems: "center", tex: "center" }}>
       <div className="Content">
@@ -295,7 +294,6 @@ function LaAgreement(props) {
                   &nbsp; Poland
                 </td>
                 <td style={{ height: "35px", width: "174.4px" }} colSpan={6}>
-                  {console.log(personalInfo)}
                   &nbsp;{" "}
                   {personalInfo.receiving_contact_name  && personalInfo.receiving_contact_name +
                     "\n" +
