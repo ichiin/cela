@@ -38,8 +38,7 @@ function LaAgreement(props) {
           <p style={{ textAlign: "right" }}>
             <strong>
               <em>
-                Student’s name{" "}
-                {personalInfo.lastName + " " + personalInfo.firstName}&nbsp;
+                Student’s name {" : " + (personalInfo.lastName && personalInfo.lastName) + " " + (personalInfo.firstName && personalInfo.firstName)}&nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
               </em>
@@ -123,37 +122,38 @@ function LaAgreement(props) {
               <tr style={{ height: "60px" }}>
                 <td style={{ height: "60px", width: "108px" }}>
                   <p>&nbsp;</p>
-                  <p>&nbsp;</p>
-                  {personalInfo.lastName}
+                  {personalInfo.lastName && personalInfo.lastName}
                 </td>
                 <td style={{ height: "60px", width: "96.8px" }}>
                   <p>&nbsp;</p>
-                  {personalInfo.firstName}
+                  {personalInfo.firstName && personalInfo.firstName}
                 </td>
                 <td style={{ height: "60px", width: "93.6px" }} colSpan={2}>
                   <p>&nbsp;</p>
-                  {personalInfo.birthDate && personalInfo.birthDate.getDate()}
-                  {personalInfo.birthDate &&
-                    personalInfo.birthDate.getMonth() + 1}
-                  {personalInfo.birthDate &&
-                    personalInfo.birthDate.getFullYear()}
+                  {personalInfo && personalInfo.birthDate && personalInfo.birthDate.getDate()}
+                  {personalInfo.birthDate && '.'}
+                  {personalInfo && personalInfo.birthDate &&
+                  personalInfo && personalInfo.birthDate.getMonth() + 1}
+                  {personalInfo.birthDate && '.'}
+                  {personalInfo && personalInfo.birthDate &&
+                  personalInfo && personalInfo.birthDate.getFullYear()}
                 </td>
                 <td style={{ height: "60px", width: "108px" }} colSpan={2}>
                   <p>&nbsp;</p>
-                  {personalInfo.nationality}
+                  {personalInfo && personalInfo.nationality}
                 </td>
                 <td style={{ height: "60px", width: "210.4px" }} colSpan={2}>
                   <p style={{ textAlign: "center" }}>
                     <em>&nbsp;</em>
                   </p>
-                  {personalInfo.sex}
+                  {personalInfo && personalInfo.sex}
                 </td>
                 <td style={{ height: "60px", width: "72px" }} colSpan={4}>
                   <p>&nbsp;</p>
                 </td>
                 <td style={{ height: "60px", width: "96.8px" }} colSpan={2}>
                   <p>&nbsp;</p>
-                  {personalInfo.fieldOfEducation}
+                  {personalInfo && personalInfo.fieldOfEducation}
                 </td>
                 <td style={{ height: "60px", width: "8px" }}>
                   <p>&nbsp;</p>
@@ -215,31 +215,26 @@ function LaAgreement(props) {
               </tr>
               <tr style={{ height: "48px" }}>
                 <td style={{ height: "48px", width: "108px" }}>
-                  <p>{personalInfo.sending_institutionName}</p>
+                  {personalInfo && personalInfo.sending_institutionName}
                 </td>
                 <td style={{ height: "48px", width: "96.8px" }}>
-                  &nbsp;
-                  {personalInfo.sending_faculty}
+                  {personalInfo && personalInfo.sending_faculty}
                 </td>
                 <td style={{ height: "48px", width: "93.6px" }} colSpan={2}>
-                  <p>
-                    {personalInfo.sending_erasmusCode}
-                  </p>
+                    {personalInfo && personalInfo.sending_erasmusCode}
                 </td>
                 <td style={{ height: "48px", width: "108px" }} colSpan={2}>
-                  &nbsp;{personalInfo.sending_address}{" "}
+                  {personalInfo && personalInfo.sending_address}{" "}
                 </td>
                 <td style={{ height: "48px", width: "210.4px" }} colSpan={2}>
-                  <p>{personalInfo.sending_country}</p>
+                  {personalInfo && personalInfo.sending_country}
                 </td>
                 <td style={{ height: "48px", width: "174.4px" }} colSpan={6}>
-                  &nbsp;{" "}
-                  {personalInfo.sending_contact_name +
+                  {personalInfo.sending_contact_name && personalInfo.sending_contact_name +
                     "\n" +
-                    personalInfo.sending_contact_mail}
+                  personalInfo.sending_contact_mail && personalInfo.sending_contact_mail}
                 </td>
                 <td style={{ height: "48px", width: "8px" }}>
-                  <p>&nbsp;</p>
                 </td>
               </tr>
               <tr style={{ height: "62px" }}>
@@ -300,10 +295,11 @@ function LaAgreement(props) {
                   &nbsp; Poland
                 </td>
                 <td style={{ height: "35px", width: "174.4px" }} colSpan={6}>
+                  {console.log(personalInfo)}
                   &nbsp;{" "}
-                  {personalInfo.receiving_contact_name +
+                  {personalInfo.receiving_contact_name  && personalInfo.receiving_contact_name +
                     "\n" +
-                    personalInfo.receiving_contact_mail}
+                  personalInfo.receiving_contact_mail && personalInfo.receiving_contact_mail}
                 </td>
                 <td style={{ height: "35px", width: "8px" }}>
                   <p>&nbsp;</p>
