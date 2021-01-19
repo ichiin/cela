@@ -14,7 +14,6 @@ class Login extends Component {
       Password: "",
       open: false,
       creation: props.location.state ? props.location.state.creation : false,
-      severity: props.location.state ? props.location.state.creation  && "success" : "error",
     };
 
     this.Password = this.Password.bind(this);
@@ -22,6 +21,7 @@ class Login extends Component {
     this.login = this.login.bind(this);
     this.handleAlert = this.handleAlert.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.onExit = this.onExit.bind(this);
     localStorage.setItem("isLogged", "false");
   }
 
@@ -34,6 +34,15 @@ class Login extends Component {
       return;
     }
     this.setState({ open: false });
+  }
+
+  onExit(){
+    if (this.state.creation){
+      this.setState({
+        creation: false,
+        severity: 'error'
+      })
+    }
   }
 
   Email(event) {
@@ -80,7 +89,10 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    if (this.state.creation === true) this.handleAlert("Account successfully created !");
+    if (this.state.creation === true) {
+      this.handleAlert("Account successfully created !");
+      this.setState({severity: "success"})
+    }
   }
 
   render() {
@@ -139,6 +151,7 @@ class Login extends Component {
             open={this.state.open}
             autoHideDuration={4000}
             onClose={this.handleClose}
+            onExited={this.onExit}
           >
             <Alert onClose={this.handleClose} severity={this.state.severity}>
               {this.state.errorMessage}
