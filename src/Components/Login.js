@@ -92,6 +92,8 @@ class Login extends Component {
     if (this.state.creation === true) {
       this.handleAlert("Account successfully created !");
       this.setState({severity: "success"})
+    }else{
+      this.setState({severity: "error"})
     }
   }
 
