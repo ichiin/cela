@@ -230,9 +230,9 @@ function LaAgreement(props) {
                   {personalInfo && personalInfo.sending_country}
                 </td>
                 <td style={{ height: "48px", width: "174.4px" }} colSpan={6}>
-                  {personalInfo.sending_contact_name && personalInfo.sending_contact_name +
+                  {(personalInfo.sending_contact_name && personalInfo.sending_contact_name) +
                     "\n" +
-                  personalInfo.sending_contact_mail && personalInfo.sending_contact_mail}
+                  (personalInfo.sending_contact_mail && personalInfo.sending_contact_mail)}
                 </td>
                 <td style={{ height: "48px", width: "8px" }}>
                 </td>
@@ -296,9 +296,9 @@ function LaAgreement(props) {
                 </td>
                 <td style={{ height: "35px", width: "174.4px" }} colSpan={6}>
                   &nbsp;{" "}
-                  {personalInfo.receiving_contact_name  && personalInfo.receiving_contact_name +
+                  {(personalInfo.receiving_contact_name  && personalInfo.receiving_contact_name) +
                     "\n" +
-                  personalInfo.receiving_contact_mail && personalInfo.receiving_contact_mail}
+                  (personalInfo.receiving_contact_mail && personalInfo.receiving_contact_mail)}
                 </td>
                 <td style={{ height: "35px", width: "8px" }}>
                   <p>&nbsp;</p>
