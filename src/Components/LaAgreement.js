@@ -7,7 +7,6 @@ function LaAgreement(props) {
   const personalInfo = props.location.state.personalInfo;
   const ectsTotal = props.location.state.ectsTotal;
   console.log(personalInfo);
-  console.log("thot", ectsTotal);
   return (
     <div style={{ alignItems: "center", tex: "center" }}>
       <div className="Content">
@@ -134,8 +133,11 @@ function LaAgreement(props) {
                 <td style={{ height: "60px", width: "93.6px" }} colSpan={2}>
                   <p>&nbsp;</p>
                   {personalInfo.birthDate && personalInfo.birthDate.getDate()}.
-                  {personalInfo.birthDate && personalInfo.birthDate.getMonth() + 1}.
-                  {personalInfo.birthDate && personalInfo.birthDate.getFullYear()}
+                  {personalInfo.birthDate &&
+                    personalInfo.birthDate.getMonth() + 1}
+                  .
+                  {personalInfo.birthDate &&
+                    personalInfo.birthDate.getFullYear()}
                 </td>
                 <td style={{ height: "60px", width: "108px" }} colSpan={2}>
                   <p>&nbsp;</p>

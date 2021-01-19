@@ -38,7 +38,7 @@ class UserForm extends Component {
       receiving_faculty: "",
       receiving_contact_name: "",
       receiving_contact_mail: "",
-      email : localStorage.getItem("email")
+      email: localStorage.getItem("email"),
     };
     this.LastName = this.LastName.bind(this);
     this.FirstName = this.FirstName.bind(this);
@@ -123,6 +123,43 @@ class UserForm extends Component {
     this.setState({ receiving_contact_mail: event.target.value });
   }
 
+  componentDidMount() {
+    if (this.state.email && this.state.email.length > 0) {
+      fetch("http://localhost:3001/getUserInformation", {
+        method: "post",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: this.state.email,
+        }),
+      })
+        .then((resp) => resp.json())
+        .then((res) => {
+          let data = res[0];
+          this.setState({
+            email: data.email,
+            lastName: data.last_name,
+            firstName: data.first_name,
+            birthDate: new Date(data.birth_date),
+            nationality: data.nationality,
+            sex: data.sex,
+            fieldOfEducation: data.field_of_education,
+            sending_institutionName: data.sending_inst_name,
+            sending_faculty: data.sending_inst_dept,
+            sendingErasmusCode: data.sending_inst_erascode,
+            sending_address: data.sending_inst_address,
+            sending_country: data.sending_inst_country,
+            sending_contact_name: data.sending_inst_contact_name,
+            sending_contact_mail: data.sending_inst_contact_email,
+            receiving_contact_name: data.receiving_inst_contact_name,
+            receiving_contact_mail: data.receiving_inst_contact_name,
+          });
+        });
+    }
+  }
+
   submit(event) {
     fetch("http://localhost:3001/setUserInformation", {
       method: "post",
@@ -137,17 +174,19 @@ class UserForm extends Component {
         birthDate: this.state.birthDate,
         nationality: this.state.nationality,
         sex: this.state.sex,
-        fieldOfEducation : this.state.fieldOfEducation,
-        sending_institutionName : this.state.sending_institutionName,
-        sending_faculty : this.state.sending_faculty,
-        sendingErasmusCode : this.state.sending_erasmusCode,
-        sending_address : this.state.sending_address,
-        sending_country : this.state.sending_country,
-        sending_contact_name : this.state.sending_contact_name,
-        sending_contact_mail : this.state.sending_contact_mail,
-        receiving_contact_name : this.state.receiving_contact_name,
-        receiving_contact_mail : this.state.receiving_contact_mail
-      })})}
+        fieldOfEducation: this.state.fieldOfEducation,
+        sending_institutionName: this.state.sending_institutionName,
+        sending_faculty: this.state.sending_faculty,
+        sendingErasmusCode: this.state.sending_erasmusCode,
+        sending_address: this.state.sending_address,
+        sending_country: this.state.sending_country,
+        sending_contact_name: this.state.sending_contact_name,
+        sending_contact_mail: this.state.sending_contact_mail,
+        receiving_contact_name: this.state.receiving_contact_name,
+        receiving_contact_mail: this.state.receiving_contact_mail,
+      }),
+    });
+  }
 
   render() {
     return (
@@ -161,11 +200,21 @@ class UserForm extends Component {
                   <Form>
                     <label>Last name</label>
                     <InputGroup className="mb-3">
-                      <Input type="text" id="lname" onChange={this.LastName} />
+                      <Input
+                        type="text"
+                        id="lname"
+                        placeholder={this.state.lastName}
+                        onChange={this.LastName}
+                      />
                     </InputGroup>
                     <label>First name</label>
                     <InputGroup className="mb-3">
-                      <Input type="text" id="fname" onChange={this.FirstName} />
+                      <Input
+                        type="text"
+                        id="fname"
+                        placeholder={this.state.firstName}
+                        onChange={this.FirstName}
+                      />
                     </InputGroup>
                     <label>Date of birth</label>
                     <InputGroup className="mb-3">
@@ -183,15 +232,26 @@ class UserForm extends Component {
                       <Input
                         type="text"
                         id="nationality"
+                        placeholder={this.state.nationality}
                         onChange={this.Nationality}
                       />
                     </InputGroup>
                     <label>Gender</label>
                     <InputGroup className="mb-3">
-                      <div  onChange={this.Sex}>
-                        <input type="radio" value="Male" name="gender" />
+                      <div onChange={this.Sex}>
+                        <input
+                          type="radio"
+                          value="Male"
+                          name="gender"
+                          checked={this.state.sex === "Male"}
+                        />
                         <label className="labels">Male</label>
-                        <input type="radio" value="Female" name="gender" />
+                        <input
+                          type="radio"
+                          value="Female"
+                          name="gender"
+                          checked={this.state.sex === "Female"}
+                        />
                         <label className="labels">Female</label>
                       </div>
                     </InputGroup>
@@ -202,6 +262,7 @@ class UserForm extends Component {
                         type="text"
                         id="fieldOfEducation"
                         onChange={this.FieldOfEducation}
+                        placeholder={this.state.fieldOfEducation}
                       />
                     </InputGroup>
                   </Form>
@@ -220,6 +281,7 @@ class UserForm extends Component {
                       <Input
                         type="text"
                         id="sending_name"
+                        placeholder={this.state.sending_institutionName}
                         onChange={this.sending_InstitutionName}
                       />
                     </InputGroup>
@@ -228,6 +290,7 @@ class UserForm extends Component {
                       <Input
                         type="text"
                         id="sending_faculty"
+                        placeholder={this.state.sending_faculty}
                         onChange={this.sending_Faculty}
                       />
                     </InputGroup>
@@ -236,6 +299,7 @@ class UserForm extends Component {
                       <Input
                         type="text"
                         id="sending_ecode"
+                        placeholder={this.state.sending_erasmusCode}
                         onChange={this.sending_ErasmusCode}
                       />
                     </InputGroup>
@@ -244,6 +308,7 @@ class UserForm extends Component {
                       <Input
                         type="text"
                         id="sending_address"
+                        placeholder={this.state.sending_address}
                         onChange={this.sending_Address}
                       />
                     </InputGroup>
@@ -252,6 +317,7 @@ class UserForm extends Component {
                       <Input
                         type="text"
                         id="sending_country"
+                        placeholder={this.state.sending_country}
                         onChange={this.sending_Country}
                       />
                     </InputGroup>
@@ -260,6 +326,7 @@ class UserForm extends Component {
                       <Input
                         type="text"
                         id="sending_contact_name"
+                        placeholder={this.state.sending_contact_name}
                         onChange={this.sending_contact_name}
                       />
                     </InputGroup>
@@ -268,6 +335,7 @@ class UserForm extends Component {
                       <Input
                         type="text"
                         id="sending_contact_mail"
+                        placeholder={this.state.sending_contact_mail}
                         onChange={this.sending_contact_mail}
                       />
                     </InputGroup>
@@ -285,6 +353,7 @@ class UserForm extends Component {
                       <Input
                         type="text"
                         id="receiving_faculty"
+                        placeholder={this.state.receiving_faculty}
                         onChange={this.receiving_faculty}
                       />
                     </InputGroup>
@@ -293,6 +362,7 @@ class UserForm extends Component {
                       <Input
                         type="text"
                         id="receiving_faculty_name"
+                        placeholder={this.state.receiving_contact_name}
                         onChange={this.receiving_contact_name}
                       />
                     </InputGroup>
@@ -301,6 +371,7 @@ class UserForm extends Component {
                       <Input
                         type="text"
                         id="receiving_faculty_mail"
+                        placeholder={this.state.receiving_contact_mail}
                         onChange={this.receiving_contact_mail}
                       />
                     </InputGroup>

@@ -60,9 +60,7 @@ class Login extends Component {
         if (result.length !== 0) {
           localStorage.setItem("isLogged", "true");
           localStorage.setItem("email", this.state.Email);
-          console.log(this.props.setLoggedEmail)
           this.props.setLoggedEmail(this.state.Email);
-          console.log(result);
           if (
             result[0].password !== this.state.Password ||
             result[0].email !== this.state.Email
@@ -73,7 +71,9 @@ class Login extends Component {
           if (this.state.Password === "" && this.state.Email === "")
             this.handleAlert("You have to fill in all the fields!");
           else
-            this.handleAlert("The email address you entered does not match any accounts");
+            this.handleAlert(
+              "The email address you entered does not match any accounts"
+            );
         }
       });
   }

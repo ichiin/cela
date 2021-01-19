@@ -40,7 +40,6 @@ export function SubjectsList(props) {
     if (selectedSubjectId === 0 || selectedSubjectId !== id) {
       setSelectedSubjectId(parseInt(id));
     }
-    console.log("selected subject id : ", id);
   };
 
   //Add selected subject to the basket
@@ -109,7 +108,12 @@ export function SubjectsList(props) {
                     <Grid container item direction={"row"}>
                       <ListItem
                         button
-                        selected={selectedSubjectId === s.id && mySubjects.filter(subj => subj.id === selectedSubjectId).length === 0}
+                        selected={
+                          selectedSubjectId === s.id &&
+                          mySubjects.filter(
+                            (subj) => subj.id === selectedSubjectId
+                          ).length === 0
+                        }
                         disabled={mySubjects.includes(s)}
                         style={{ justifyContent: "center" }}
                         onClick={(event) => onClickSubject(event, s.id)}
@@ -139,7 +143,12 @@ export function SubjectsList(props) {
           variant={"outlined"}
           className={"secondaryButton"}
           onClick={onAddSubject}
-          disabled={(selectedSubjectId === -1 || mySubjects.filter(subj => subj.id === selectedSubjectId).length > 0) && true}
+          disabled={
+            (selectedSubjectId === -1 ||
+              mySubjects.filter((subj) => subj.id === selectedSubjectId)
+                .length > 0) &&
+            true
+          }
         >
           Add selected course
         </Button>
@@ -183,7 +192,12 @@ export function SubjectsList(props) {
           variant={"outlined"}
           color={"secondary"}
           className={"tertiaryButton"}
-          disabled={(selectedSubjectId === -1 || mySubjects.filter(subj => subj.id === selectedSubjectId).length === 0) && true}
+          disabled={
+            (selectedSubjectId === -1 ||
+              mySubjects.filter((subj) => subj.id === selectedSubjectId)
+                .length === 0) &&
+            true
+          }
           onClick={onRemoveSubject}
         >
           Remove selected course
