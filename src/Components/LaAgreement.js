@@ -2664,14 +2664,17 @@ function LaAgreement(props) {
           </p>
         </div>
       </div>
-      <button
-        id="no-print"
-        onClick={() => window.print()}
-        className="no-print"
-        style={{ alignItems: "center", alignContent: "center" }}
-      >
-        generate PDF
-      </button>
+      <div style={{width:'100ws',marginTop:20,marginBottom:20,textAlign:"center"}}>
+          <button
+                  id="no-print"
+                  onClick={() => window.print()}
+                  className="no-print"
+                  style={{ alignItems: "center", alignContent: "center", backgroundColor:'#3e72f8', color:'white' }}
+                >
+                  generate PDF
+                </button>
+      </div>
+      
     </div>
   );
 }
