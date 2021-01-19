@@ -8,6 +8,7 @@ function LaAgreement(props) {
   const ectsTotal = props.location.state.ectsTotal;
   return (
     <div style={{ alignItems: "center", tex: "center" }}>
+      {console.log((personalInfo.lastName !== null) && 'ew')}
       <div className="Content">
         <div>
           <p>&nbsp;</p>
@@ -37,7 +38,7 @@ function LaAgreement(props) {
           <p style={{ textAlign: "right" }}>
             <strong>
               <em>
-                Student’s name {" : " + (personalInfo.lastName && personalInfo.lastName) + " " + (personalInfo.firstName && personalInfo.firstName)}&nbsp;
+                Student’s name {" : " + (personalInfo.lastName !== null ? personalInfo.lastName: "") + " " + (personalInfo.firstName !== null ? personalInfo.firstName: "")}&nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
               </em>
