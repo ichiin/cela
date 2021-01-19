@@ -148,13 +148,13 @@ class UserForm extends Component {
             fieldOfEducation: data.field_of_education,
             sending_institutionName: data.sending_inst_name,
             sending_faculty: data.sending_inst_dept,
-            sendingErasmusCode: data.sending_inst_erascode,
+            sending_erasmusCode: data.sending_inst_erascode,
             sending_address: data.sending_inst_address,
             sending_country: data.sending_inst_country,
             sending_contact_name: data.sending_inst_contact_name,
             sending_contact_mail: data.sending_inst_contact_email,
             receiving_contact_name: data.receiving_inst_contact_name,
-            receiving_contact_mail: data.receiving_inst_contact_name,
+            receiving_contact_mail: data.receiving_inst_contact_email,
           });
         });
     }

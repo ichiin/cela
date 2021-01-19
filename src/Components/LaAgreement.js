@@ -132,10 +132,9 @@ function LaAgreement(props) {
                 </td>
                 <td style={{ height: "60px", width: "93.6px" }} colSpan={2}>
                   <p>&nbsp;</p>
-                  {personalInfo.birthDate && personalInfo.birthDate.getDate()}.
+                  {personalInfo.birthDate && personalInfo.birthDate.getDate()}
                   {personalInfo.birthDate &&
                     personalInfo.birthDate.getMonth() + 1}
-                  .
                   {personalInfo.birthDate &&
                     personalInfo.birthDate.getFullYear()}
                 </td>
@@ -224,7 +223,7 @@ function LaAgreement(props) {
                 </td>
                 <td style={{ height: "48px", width: "93.6px" }} colSpan={2}>
                   <p>
-                    <strong>{personalInfo.sending_erasmusCode} </strong>
+                    {personalInfo.sending_erasmusCode}
                   </p>
                 </td>
                 <td style={{ height: "48px", width: "108px" }} colSpan={2}>

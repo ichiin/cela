@@ -14,6 +14,7 @@ class Login extends Component {
       Password: "",
       open: false,
       creation: props.location.state ? props.location.state.creation : false,
+      severity: props.location.state ? props.location.state.creation  && "success" : "error",
     };
 
     this.Password = this.Password.bind(this);
@@ -79,7 +80,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    if (this.state.creation === true) this.handleAlert();
+    if (this.state.creation === true) this.handleAlert("Account successfully created !");
   }
 
   render() {
@@ -139,7 +140,7 @@ class Login extends Component {
             autoHideDuration={4000}
             onClose={this.handleClose}
           >
-            <Alert onClose={this.handleClose} severity="error">
+            <Alert onClose={this.handleClose} severity={this.state.severity}>
               {this.state.errorMessage}
             </Alert>
           </Snackbar>
